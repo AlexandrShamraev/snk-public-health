@@ -180,7 +180,7 @@
                     <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Исследования" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-in-out">
                     <div class="absolute inset-0 border border-transparent group-hover:border-light/50 m-5 transition-colors duration-700 z-20 pointer-events-none"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-navy to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 text-light transform translate-y-4 group-hover:translate-y-0">
-                        <h3 class="font-serif text-3xl mb-2">Исследования</h3>
+                        <h3 class="font-serif text-3xl mb-2">Публикации</h3>
                         <p class="font-sans text-xs tracking-wider opacity-90 uppercase">Глубокий анализ данных</p>
                     </div>
                 </div>
@@ -198,7 +198,95 @@
             </div>
         </div>
     </section>
+    
+    <section id="publications" style="padding: 4rem 2rem; max-width: 900px; margin: 0 auto;">
+      <h2 style="font-family: 'Cormorant Garamond', serif; color: #1a2942; font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem;">Публикации</h2>
+      
+      <style>
+        .pub-item {
+          background: #ffffff;
+          border: 1px solid #c8d8e4;
+          border-radius: 8px;
+          margin-bottom: 1rem;
+          padding: 1.5rem;
+          box-shadow: 0 4px 10px rgba(26,41,66,0.05);
+          transition: all 0.3s ease;
+          text-align: left;
+        }
+        .pub-item summary {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+          color: #1a2942;
+          cursor: pointer;
+          list-style: none;
+          font-size: 1.1rem;
+          outline: none;
+        }
+        .pub-item summary::-webkit-details-marker { display: none; }
+        .pub-item[open] summary { border-bottom: 1px solid #c8d8e4; padding-bottom: 0.8rem; margin-bottom: 0.8rem; }
+        .pub-authors { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; color: #555; margin-top: 0.5rem; font-style: italic; }
+        .pub-abstract { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6; color: #333; margin-top: 1rem; }
+        .pub-link {
+          display: inline-block;
+          margin-top: 1.5rem;
+          padding: 0.6rem 1.5rem;
+          background: #89b0ae;
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.9rem;
+          transition: background 0.3s;
+        }
+        .pub-link:hover { background: #1a2942; }
+      </style>
 
+      <details class="pub-item">
+        <summary>Монастырские больницы и медицинские знания в Западной Европе</summary>
+        <div class="pub-authors">Авторы: Гарбузов В.Р., Шатохина А.А., Зеленский В.В., Знагован С.Ю.</div>
+        <div class="pub-abstract">
+          <strong>Аннотация:</strong> Монастырская медицина в Западной Европе V–XV вв. выступила ключевым механизмом сохранения античного медицинского наследия, развития практики врачевания и становления организованных форм ухода за больными, заложив основы будущей европейской системы здравоохранения.
+        </div>
+        <a href="Гарбузов В.Р., Шатохина А.А.docx" class="pub-link" download>Читать полную статью (DOCX)</a>
+      </details>
+      
+      <details class="pub-item">
+        <summary>Медицина в киберпанковой ретроспективе: как фантастика 1950–1980-х предсказывала биоэтические кризисы</summary>
+        <div class="pub-authors">Авторы: Малимон Н.А., Шамраев А.Э., Сафонова А.А.</div>
+        <div class="pub-abstract">
+          <strong>Аннотация:</strong> Научная фантастика второй половины XX века в произведениях Айзека Азимова, Филипа Дика и Уильяма Гибсона предвосхищает ключевые биоэтические дилеммы современной биомедицины — от ответственности за решения медицинского ИИ и последствий генной инженерии до кризиса идентичности в условиях киборгизации и тотальной цифровизации сознания.
+        </div>
+        <a href="Малимон Н.А.docx" class="pub-link" download>Читать полную статью (DOCX)</a>
+      </details>
+
+      <details class="pub-item">
+        <summary>Нестандартные фигуры в истории медицины: Фердинанд Демара и Мартин Коуни</summary>
+        <div class="pub-authors">Авторы: Алимов К.И., Гребенюк Д.А., Зеленский В.В., Сафонова А.А.</div>
+        <div class="pub-abstract">
+          <strong>Аннотация:</strong> На примере Фердинанда Демары и Мартина Коуни показано, что, несмотря на отдельные случаи спасения жизней, нелегитимная медицинская практика остаётся неприемлемой из-за нарушения этических, правовых и профессиональных норм.
+        </div>
+        <a href="Алимов К.И.,  Гребенюк Д.А.docx" class="pub-link" download>Читать полную статью (DOCX)</a>
+      </details>
+
+      <details class="pub-item">
+        <summary>Восточная медицина Древнего мира: философские основы и практики</summary>
+        <div class="pub-authors">Авторы: Барсуков Д.В., Янпольцев Д.А., Шамраев А.Э., Луговсков А.Д.</div>
+        <div class="pub-abstract">
+          <strong>Аннотация:</strong> Традиционная индийская и китайская медицина рассматриваются как целостные философско-медицинские системы, в рамках которых здоровье понимается как динамический баланс жизненных сил человека и его взаимодействия с природой.
+        </div>
+        <a href="Барсуков Д.В., Янпольцев Д.А.docx" class="pub-link" download>Читать полную статью (DOCX)</a>
+      </details>
+
+      <details class="pub-item">
+        <summary>Вклад Галена в развитии анатомии на основе вскрытия животных: влияние на медицину на 1500 лет</summary>
+        <div class="pub-authors">Авторы: Верховод В.В., Знагован С.Ю., Зеленский В.В., Шамраев А.Э.</div>
+        <div class="pub-abstract">
+          <strong>Аннотация:</strong> Наследие Клавдия Галена (130–210 гг. н. э.) представляет собой не просто исторический этап, а фундаментальный эпистемологический сдвиг в медицине античности. Систематизация анатомических знаний и интеграция философского дискурса в клиническую практику позволили сформировать парадигму, доминировавшую более полутора тысячелетий.
+        </div>
+        <a href="Верховод В.В.docx" class="pub-link" download>Читать полную статью (DOCX)</a>
+      </details>
+    </section>
+    
     <section id="contact" class="py-24 md:py-32 px-6 relative">
         <div class="max-w-3xl mx-auto text-center reveal">
             <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Присоединяйтесь к нам</h2>
