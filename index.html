@@ -383,8 +383,9 @@
                     btn.disabled = true;
                     btn.classList.add('opacity-50', 'cursor-not-allowed');
 
-                    fetch(scriptURL, { method: 'POST', body: formData })
-                        .then(response => {
+                   // Добавлен параметр mode: 'no-cors'
+                    fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
+                        .then(() => {
                             form.reset();
                             btn.innerText = 'ОТПРАВИТЬ ЗАЯВКУ';
                             btn.disabled = false;
