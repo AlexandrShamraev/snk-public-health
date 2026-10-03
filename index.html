@@ -326,9 +326,22 @@
 
     <!-- SCRIPTS -->
     <script>
-        // Принудительно отключаем память браузера о позиции скролла и возвращаем наверх
-        if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
-        window.scrollTo(0, 0);
+   // Принудительно отключаем память браузера о позиции скролла
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        // Очищаем URL от якорей (#contact, #about), чтобы они не тянули страницу вниз при рефреше
+        if (window.location.hash) {
+            window.history.replaceState(null, null, window.location.pathname);
+        }
+
+        // Делаем сброс скролла с микрозадержкой, чтобы перебить мобильные браузеры
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            }, 10);
+        });
 
         document.addEventListener("DOMContentLoaded", () => {
             const observerOptions = {
