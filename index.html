@@ -328,6 +328,15 @@
     </section>
 
     <script>
+
+        // Принудительно отключаем память браузера о позиции скролла и возвращаем наверх
+        if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
+        window.scrollTo(0, 0);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Intersection Observer for scroll-triggered "reveal" animations
+            const observerOptions = {
+                
         document.addEventListener("DOMContentLoaded", () => {
             // Intersection Observer for scroll-triggered "reveal" animations
             const observerOptions = {
