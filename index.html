@@ -55,28 +55,56 @@
             animation: float 2s ease-in-out infinite;
         }
 
-        /* Custom scrollbar for elegance */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f2f7fb; }
+        ::-webkit-scrollbar-thumb { background: #6b8cae; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1c3144; }
+
+        /* Publications accordion styles */
+        .pub-item {
+            background: #ffffff;
+            border: 1px solid #c8d8e4;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(26,41,66,0.05);
+            transition: all 0.3s ease;
+            text-align: left;
         }
-        ::-webkit-scrollbar-track {
-            background: #f2f7fb; 
+        .pub-item summary {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #1a2942;
+            cursor: pointer;
+            list-style: none;
+            font-size: 1.1rem;
+            outline: none;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #6b8cae; 
+        .pub-item summary::-webkit-details-marker { display: none; }
+        .pub-item[open] summary { border-bottom: 1px solid #c8d8e4; padding-bottom: 0.8rem; margin-bottom: 0.8rem; }
+        .pub-authors { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; color: #555; margin-top: 0.5rem; font-style: italic; }
+        .pub-abstract { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6; color: #333; margin-top: 1rem; }
+        .pub-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.5rem;
+            background: #89b0ae;
+            color: white;
+            text-decoration: none;
             border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            transition: background 0.3s;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #1c3144; 
-        }
+        .pub-link:hover { background: #1a2942; }
     </style>
 </head>
 <body class="font-sans antialiased text-navy bg-light">
 
+    <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 bg-light/95 backdrop-blur-md border-b border-accent/20 py-3 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-            
-            <!-- University Branding (Left) -->
             <div class="flex items-center gap-3 md:gap-4 flex-shrink-0">
                 <img src="Эмблема универа_.png" alt="Эмблема ЛГМУ" 
                      onerror="this.onerror=null; this.src='https://placehold.co/150x150/1c3144/6b8cae?text=ЛГМУ';"
@@ -88,8 +116,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Navigation Links (Right) -->
             <div class="hidden lg:flex items-center space-x-8 text-xs uppercase tracking-[0.2em] font-semibold">
                 <a href="#home" class="hover:text-accent transition-colors">СНК</a>
                 <a href="#about" class="hover:text-accent transition-colors">О нас</a>
@@ -99,27 +125,20 @@
         </div>
     </nav>
 
+    <!-- HERO SECTION -->
     <section id="home" class="min-h-screen flex flex-col justify-center items-center relative px-4 text-center pt-24">
         <div class="reveal max-w-4xl flex flex-col items-center">
-            <!-- СНК Emblem Image -->
             <div class="relative w-48 h-48 md:w-64 md:h-64 mb-10 group">
                 <div class="absolute inset-0 rounded-full border border-accent scale-105 group-hover:scale-110 transition-transform duration-700 ease-out"></div>
                 <div class="absolute inset-0 rounded-full border border-navy/20 scale-110 group-hover:scale-[1.15] transition-transform duration-1000 ease-out delay-75"></div>
-                <img src="Эмблема.png" alt="Эмблема СНК" 
+                <img src="Эмблема.jpg" alt="Эмблема СНК" 
                      onerror="this.onerror=null; this.src='https://placehold.co/400x400/1c3144/6b8cae?text=СНК';"
-                     class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-light z-10 relative">
+                     class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-light z-10 relative bg-white">
             </div>
-            
             <h2 class="font-sans text-xs md:text-sm text-accent tracking-[0.3em] md:tracking-[0.4em] uppercase mb-6 font-medium">Приглашаем к открытиям</h2>
-            <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
-                Студенческий научный кружок
-            </h1>
-            <p class="font-serif text-2xl md:text-3xl italic text-navy/80 mb-12">
-                Кафедра общественного здоровья и здравоохранения
-            </p>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">Студенческий научный кружок</h1>
+            <p class="font-serif text-2xl md:text-3xl italic text-navy/80 mb-12">Кафедра общественного здоровья и здравоохранения</p>
         </div>
-
-        <!-- Scroll down indicator -->
         <a href="#about" class="absolute bottom-8 md:bottom-12 animate-float text-accent hover:text-navy transition-colors cursor-pointer p-4">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -127,6 +146,7 @@
         </a>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about" class="py-24 md:py-32 px-6">
         <div class="max-w-4xl mx-auto text-center reveal">
             <div class="flex items-center justify-center space-x-6 mb-10">
@@ -134,7 +154,6 @@
                 <h2 class="font-serif text-4xl md:text-5xl font-bold">О нас</h2>
                 <div class="h-[1px] w-16 md:w-24 bg-gradient-to-l from-light to-accent"></div>
             </div>
-            
             <div class="prose prose-lg mx-auto font-sans font-light leading-relaxed text-navy/90 text-justify md:text-center space-y-8">
                 <p>
                     Добро пожаловать в Студенческий научный кружок кафедры общественного здоровья и здравоохранения. 
@@ -167,20 +186,19 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="mt-16">
                 <p class="font-serif italic text-3xl text-accent tracking-wide">"Primum non nocere"</p>
             </div>
         </div>
     </section>
 
+    <!-- ACHIEVEMENTS GALLERY -->
     <section id="achievements" class="py-24 md:py-32 bg-[#e6eff5] px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 reveal">
                 <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">Наши достижения</h2>
                 <p class="font-sans text-xs tracking-[0.2em] text-accent uppercase">Моменты гордости и вдохновения</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                 <!-- Gallery Item 1 -->
                 <div class="reveal group relative overflow-hidden rounded-md cursor-pointer shadow-xl aspect-[4/5]">
@@ -196,7 +214,7 @@
                 <!-- Gallery Item 2 -->
                 <div onclick="document.getElementById('publications').scrollIntoView({ behavior: 'smooth' });" class="reveal group relative overflow-hidden rounded-md cursor-pointer shadow-xl aspect-[4/5] md:translate-y-12">
                     <div class="absolute inset-0 bg-navy/30 group-hover:bg-navy/10 transition-colors duration-700 z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Исследования" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-in-out">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Публикации" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-in-out">
                     <div class="absolute inset-0 border border-transparent group-hover:border-light/50 m-5 transition-colors duration-700 z-20 pointer-events-none"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-navy to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 text-light transform translate-y-4 group-hover:translate-y-0">
                         <h3 class="font-serif text-3xl mb-2">Публикации</h3>
@@ -218,48 +236,10 @@
         </div>
     </section>
     
+    <!-- PUBLICATIONS SECTION -->
     <section id="publications" style="padding: 4rem 2rem; max-width: 900px; margin: 0 auto;">
       <h2 style="font-family: 'Cormorant Garamond', serif; color: #1a2942; font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem;">Публикации</h2>
       
-      <style>
-        .pub-item {
-          background: #ffffff;
-          border: 1px solid #c8d8e4;
-          border-radius: 8px;
-          margin-bottom: 1rem;
-          padding: 1.5rem;
-          box-shadow: 0 4px 10px rgba(26,41,66,0.05);
-          transition: all 0.3s ease;
-          text-align: left;
-        }
-        .pub-item summary {
-          font-family: 'Montserrat', sans-serif;
-          font-weight: 600;
-          color: #1a2942;
-          cursor: pointer;
-          list-style: none;
-          font-size: 1.1rem;
-          outline: none;
-        }
-        .pub-item summary::-webkit-details-marker { display: none; }
-        .pub-item[open] summary { border-bottom: 1px solid #c8d8e4; padding-bottom: 0.8rem; margin-bottom: 0.8rem; }
-        .pub-authors { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; color: #555; margin-top: 0.5rem; font-style: italic; }
-        .pub-abstract { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6; color: #333; margin-top: 1rem; }
-        .pub-link {
-          display: inline-block;
-          margin-top: 1.5rem;
-          padding: 0.6rem 1.5rem;
-          background: #89b0ae;
-          color: white;
-          text-decoration: none;
-          border-radius: 4px;
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.9rem;
-          transition: background 0.3s;
-        }
-        .pub-link:hover { background: #1a2942; }
-      </style>
-
       <details class="pub-item">
         <summary>Монастырские больницы и медицинские знания в Западной Европе</summary>
         <div class="pub-authors">Авторы: Гарбузов В.Р., Шатохина А.А., Зеленский В.В., Знагован С.Ю.</div>
@@ -306,6 +286,7 @@
       </details>
     </section>
     
+    <!-- CONTACT SECTION -->
     <section id="contact" class="py-24 md:py-32 px-6 relative">
         <div class="max-w-3xl mx-auto text-center reveal">
             <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Присоединяйтесь к нам</h2>
@@ -318,17 +299,14 @@
                     <input type="text" id="name" required class="block w-full px-0 py-3 bg-transparent border-0 border-b border-navy/40 text-navy focus:ring-0 focus:border-accent transition-colors peer placeholder-transparent" placeholder="Ваше Имя">
                     <label for="name" class="absolute left-0 -top-3.5 text-xs tracking-widest uppercase font-sans text-navy/70 transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-navy/50 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-accent cursor-text">Ваше Имя</label>
                 </div>
-
                 <div class="relative">
                     <input type="email" id="email" required class="block w-full px-0 py-3 bg-transparent border-0 border-b border-navy/40 text-navy focus:ring-0 focus:border-accent transition-colors peer placeholder-transparent" placeholder="Email адрес">
                     <label for="email" class="absolute left-0 -top-3.5 text-xs tracking-widest uppercase font-sans text-navy/70 transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-navy/50 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-accent cursor-text">Email адрес / Telegram</label>
                 </div>
-                
                 <div class="relative">
                     <input type="text" id="course" class="block w-full px-0 py-3 bg-transparent border-0 border-b border-navy/40 text-navy focus:ring-0 focus:border-accent transition-colors peer placeholder-transparent" placeholder="Курс и факультет">
                     <label for="course" class="absolute left-0 -top-3.5 text-xs tracking-widest uppercase font-sans text-navy/70 transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-navy/50 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-accent cursor-text">Курс, факультет, группа</label>
                 </div>
-
                 <div class="pt-8 text-center">
                     <button type="submit" class="inline-block px-14 py-4 border border-navy text-navy font-sans tracking-[0.2em] text-xs uppercase hover:bg-navy hover:text-light transition-all duration-500 shadow-sm hover:shadow-xl">
                         Отправить заявку
@@ -346,18 +324,13 @@
         </div>
     </section>
 
+    <!-- SCRIPTS -->
     <script>
-
         // Принудительно отключаем память браузера о позиции скролла и возвращаем наверх
         if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
         window.scrollTo(0, 0);
 
         document.addEventListener("DOMContentLoaded", () => {
-            // Intersection Observer for scroll-triggered "reveal" animations
-            const observerOptions = {
-                
-        document.addEventListener("DOMContentLoaded", () => {
-            // Intersection Observer for scroll-triggered "reveal" animations
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -368,8 +341,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Stop observing once animated to keep it visible
-                        // observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
