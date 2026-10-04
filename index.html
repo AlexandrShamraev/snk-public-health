@@ -98,6 +98,17 @@
             transition: background 0.3s;
         }
         .pub-link:hover { background: #1a2942; }
+        
+        /* Анимация карточек достижений для мобильных (появление в центре экрана) */
+        @media (hover: none) {
+            .mobile-focus .z-30 {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+            .mobile-focus img {
+                transform: scale(1.05) !important;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-navy bg-light">
@@ -455,6 +466,25 @@
 
             const revealElements = document.querySelectorAll('.reveal');
             revealElements.forEach(el => observer.observe(el));
+            // Наблюдатель для карточек достижений на мобильных устройствах
+            const galleryObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('mobile-focus');
+                    } else {
+                        entry.target.classList.remove('mobile-focus');
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '-35% 0px -35% 0px', // Срабатывает, когда элемент находится в средних 30% экрана
+                threshold: 0
+            });
+
+            // Подключаем наблюдатель ко всем карточкам в секции достижений
+            document.querySelectorAll('#achievements .group').forEach(card => {
+                galleryObserver.observe(card);
+            });
         });
     </script>
 </body>
