@@ -300,7 +300,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                 
                 <!-- Gallery Item 1 -->
-                <div class="reveal group relative overflow-hidden rounded-md cursor-pointer shadow-xl aspect-[4/5]">
+                <div onclick="document.getElementById('conferences-list').scrollIntoView({ behavior: 'smooth' });" class="reveal group relative overflow-hidden rounded-md cursor-pointer shadow-xl aspect-[4/5]">
                     <div class="absolute inset-0 bg-navy/30 group-hover:bg-navy/10 transition-colors duration-700 z-10"></div>
                     <img src="Научные конференции.jpg" alt="Конференция" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000 ease-in-out">
                     <div class="absolute inset-0 border border-transparent group-hover:border-light/50 m-5 transition-colors duration-700 z-20 pointer-events-none"></div>
@@ -329,6 +329,78 @@
                     </div>
                 </a>
                 
+            </div>
+        </div>
+    </section>
+
+    <!-- CONFERENCES LIST SECTION -->
+    <section id="conferences-list" class="py-20 md:py-28 px-6 bg-light">
+        <div class="max-w-5xl mx-auto reveal">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-navy mb-12 text-center">Участие в научных конференциях</h2>
+            
+            <div class="bg-white border border-accent/20 rounded-lg p-6 md:p-10 shadow-lg">
+                <ul class="space-y-5 font-sans font-light text-navy/90 text-sm md:text-base leading-relaxed">
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">1.</span>
+                        <span>VI научно-практическая конференция с международным участием «Актуальные аспекты медицинской деятельности в молодежной среде» <strong class="font-medium">— Киров</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">2.</span>
+                        <span>XIII Международная научно-практическая конференция «Глобальные перспективы научных исследований» <strong class="font-medium">— Австралия, Мельбурн</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">3.</span>
+                        <span>International Conference «Scientific research of the sco countries: synergy and integration» <strong class="font-medium">— Китай, Пекин</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">4.</span>
+                        <span>International Conference «Applied Research. Global Solutions» <strong class="font-medium">— Стамбул, Турция</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">5.</span>
+                        <span>V научно-практическая конференция с международным участием «Актуальные вопросы истории медицины и современные проблемы развития здравоохранения» <strong class="font-medium">— Киров</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">6.</span>
+                        <span>V очно-заочная научно-практическая конференции с международным участием «Актуальные вопросы истории медицины и здравоохранения в России, странах Ближнего Востока и Африки» <strong class="font-medium">— Киров</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">7.</span>
+                        <span>XV Всероссийская неделя наук с международным участием «WEEK OF RUSSIAN SCIENCE (WERUS – 2026)» <strong class="font-medium">— Саратов</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">8.</span>
+                        <span>International Scientific Conference «EUROPEAN RESEARCH: THEORY. PRACTICE AND INNOVATION» <strong class="font-medium">— Будапешт, Венгрия</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">9.</span>
+                        <span>II Всероссийская научно-практическая конференции «Цифровая трансформация образования: актуальные проблемы» <strong class="font-medium">— Луганск</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">10.</span>
+                        <span>VII Всероссийская научно-практическая конференция «Философские, социологические и психолого-педагогические проблемы современного образования» <strong class="font-medium">— Барнаул</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">11.</span>
+                        <span>V очно-заочная научно-практическая конференции с международным участием «Актуальные вопросы истории медицины и здравоохранения в России, странах Ближнего Востока, Африки и Южной Азии» <strong class="font-medium">— Киров</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">12.</span>
+                        <span>XX Всероссийская (94-ая Итоговая) студенческая научно-практическая конференция с международным участием «Молодые ученые: от научной идеи до разработки и внедрения в практическое здравоохранение» <strong class="font-medium">— Самара</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">13.</span>
+                        <span>V Международная студенческая онлайн-конференция на английском языке «21ST CENTURY MEDICINE: TRADITIONS, INNOVATIONS, NEW PRIORITIES» <strong class="font-medium">— Саратов</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">14.</span>
+                        <span>I Всероссийский научный фестиваль общественного здоровья и организации здравоохранения с международным участием <strong class="font-medium">— Саратов</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-accent mr-4 font-semibold text-lg leading-none mt-0.5">15.</span>
+                        <span>International Conference «MODERN SCIENCE: THEORY AND PRACTICE» <strong class="font-medium">— Белград, Сербия</strong></span>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
