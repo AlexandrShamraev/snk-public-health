@@ -56,4 +56,86 @@
     </nav>
 
     <!-- Основной контент галереи -->
-    <main class="flex-grow w-full max
+    <main class="flex-grow w-full max-w-7xl mx-auto px-6 py-12 md:py-20">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold text-center mb-16">Командная работа и моменты</h1>
+        
+        <!-- Сетка галереи (заполняется через JS) -->
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Фотографии появятся здесь -->
+        </div>
+    </main>
+
+    <!-- Модальное окно (Lightbox) -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-navy/90 flex items-center justify-center hidden" onclick="closeLightbox()">
+        <span class="absolute top-6 right-8 text-white text-4xl cursor-pointer hover:text-accent transition-colors">&times;</span>
+        <img id="lightbox-img" src="" alt="Увеличенное фото" class="max-h-[90vh] max-w-[90vw] object-contain rounded-sm shadow-2xl" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- Скрипт генерации и логики -->
+    <script>
+        // Массив со всеми названиями загруженных фотографий
+        const photos = [
+            "1a2eeb79-a515-444b-92d8-55941b012720.jfif", "1e4be88b-5494-4906-b6e6-8e071d770975.jfif",
+            "3d4d2c40-3edb-4664-9e9d-f1783a1d2915.jfif", "4afab903-7772-4e00-87a6-29b0c2db0c72.jfif",
+            "5dd6092a-b243-474a-9d5e-a38342fb275e.jfif", "5f3166b6-965f-4f00-87b3-12ee2654bef6.jfif",
+            "6d92f795-8e75-442c-ac32-5b762e7e2a35.jfif", "7c8edb7f-4b0b-460f-832f-f3ddd88c9bf6.jfif",
+            "8a857ebb-ee3f-446b-93cd-e1306f2f21d5.jfif", "16d0e7d7-3695-4198-b5f2-1baf108fc4e1.jfif",
+            "7853c873-02fd-4351-b307-587799ccab23.jfif", "65c160b4-5f9d-497c-929b-264fe61032bb.jfif",
+            "0077f61a-aec6-453a-ab8d-42fbe03c09d8.jfif", "86c1e888-e024-46f3-ae26-340f3b6ab7a3.jfif",
+            "88bfdb5e-973a-44be-a811-afa236efc3c4.jfif", "91e9616f-b37f-4e62-9e94-d6f90892de6a.jfif",
+            "98ac30c6-8452-40d8-b6cf-cd818dbfcaf4.jfif", "342aacf2-037e-4ab7-9d5e-cbbf843287df.jfif",
+            "3704bc42-d300-4c5b-a44d-f49db9e684c9.jfif", "4822d81a-11d2-425f-93e3-5a07898f0346.jfif",
+            "babee1a9-83c8-48f5-9659-cbaa2d69d84b.jfif", "ce23dfa4-2aca-424d-9937-1c6322a01b08.jfif",
+            "d22d9309-482e-48f6-b782-e270b447fb4c.jfif", "976944d2-82c8-43dd-b8c1-f1dd08514814.jfif",
+            "86462920-ca0e-4993-9c91-6a86c5b32f20.jfif", "a23739b6-0365-4feb-8b8b-53074ca7a30d.jfif",
+            "a53292bd-c55a-4fb2-a34b-88f52b9e2745.jfif", "a4570691-c490-4730-b966-68d10b94c201.jfif",
+            "ae3b5b41-3dd2-4c8b-980f-ffdf007440fc.jfif", "ba36abb1-b689-49b4-ab26-0e7db0a05ce9.jfif",
+            "fd4fc037-9733-4ff1-af99-b85958b6a13c.jfif", "da53ba7d-ca42-4b51-b254-920bbedb7b19.jfif",
+            "df627a3d-2c2c-4b2d-8d14-579472541b35.jfif", "e7ee47a4-fbef-4879-9735-cd3e7f3c58fe.jfif",
+            "e91f3d4b-e753-4bad-84be-bb9f33d7da5d.jfif", "ec7b29b9-04e8-4e2c-9cc9-df8a7a6b9191.jfif",
+            "f6c00adf-e370-4fe0-87a1-1bbb06931b30.jfif", "f987b9f2-fbd3-403c-a59e-ab1ba82356c6.jfif",
+            "f47131a9-bca3-48cf-a5c4-47ebba0efcef.jfif", "fab1c64c-2633-4ec3-9707-2a6b248aaf20.jfif",
+            "fe965c4c-fbcf-42a4-89e5-a7c4b68c5f18.jfif"
+        ];
+
+        const grid = document.getElementById('gallery-grid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        // Отрисовка галереи
+        photos.forEach((src, index) => {
+            const delay = (index % 10) * 0.05; // Каскадная задержка анимации
+            const html = `
+                <div class="fade-in group relative overflow-hidden rounded-md cursor-pointer shadow-md aspect-[4/3] bg-navy/5" 
+                     style="animation-delay: ${delay}s"
+                     onclick="openLightbox('${src}')">
+                    <div class="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                    <img src="${src}" alt="Фото СНК" loading="lazy" 
+                         class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                </div>
+            `;
+            grid.insertAdjacentHTML('beforeend', html);
+        });
+
+        // Функции Lightbox
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('visible');
+            document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('visible');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = ''; // Возвращаем скролл
+            setTimeout(() => { lightboxImg.src = ''; }, 300);
+        }
+
+        // Закрытие по кнопке Esc
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") closeLightbox();
+        });
+    </script>
+</body>
+</html>
