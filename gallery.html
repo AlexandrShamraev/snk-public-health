@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея СНК</title>
+    <link rel="icon" type="image/png" href="Эмблема.png">
+    
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1B2A4A',
+                        light: '#F8F9FA',
+                        accent: '#8C99A6'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Плавное появление фото при загрузке */
+        .fade-in { animation: fadeIn 0.8s ease-in-out forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Стили для модального окна (Lightbox) */
+        #lightbox {
+            backdrop-filter: blur(5px);
+            transition: opacity 0.3s ease;
+        }
+        #lightbox.hidden { opacity: 0; pointer-events: none; }
+        #lightbox.visible { opacity: 1; pointer-events: auto; }
+    </style>
+</head>
+<body class="bg-light text-navy font-sans antialiased selection:bg-accent/30 min-h-screen flex flex-col">
+
+    <!-- Навигация -->
+    <nav class="w-full py-6 px-8 flex justify-between items-center bg-white shadow-sm sticky top-0 z-40">
+        <div class="font-serif text-xl font-bold tracking-wider">Галерея СНК</div>
+        <a href="index.html" class="px-6 py-2 border border-navy/20 rounded-md text-sm tracking-widest uppercase hover:bg-navy hover:text-white transition-colors duration-300">
+            Назад на главную
+        </a>
+    </nav>
+
+    <!-- Основной контент галереи -->
+    <main class="flex-grow w-full max
